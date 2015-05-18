@@ -1,1 +1,29 @@
-(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({},{},[]);
+'use strict';
+var React = require('react');
+var TodoList = require('./components/TodoList');
+var TodoApp = React.createClass({
+  getInitialState: function(){
+    return {
+      todos: []
+    }
+  },
+  componentDidMount: function(){
+    var todos = [
+      {id: 1, content: 'todo 1'},
+      {id: 2, content: 'todo 2'},
+      {id: 3, content: 'todo 3'}
+    ];
+    this.setState({todos: todos});
+  },
+  render: function(){
+    return (
+      <div>
+        <input type="text" ref="todo" />
+        <button onClick={this.addTodo}>Add</button>
+        <h2>Todos:</h2>
+        <TodoList items={this.state.todos} />
+      </div>
+    )
+  }
+});
+React.render(<TodoApp />, document.getElementById('example'));
