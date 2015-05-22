@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Holy Grail Layout</title>
+  <style>
+    .holy-grail {
+      display: -webkit-flex;
+      display: flex;
+      flex-direction: column;
+    }
+    .holy-grail__header, .holy-grail__footer {
+      background-color: #c2bde2;
+    }
+    .holy-grail__body {
+      display: -webkit-flex;
+      display: flex;
+    }
+    .holy-grail__sidebar {
+      /* nothing at narrow screens */
+    }
+    .holy-grail__sidebar--first{
+      order: 1;
+    }
+    .holy-grail__content{
+      order: 2;
+    }
+    .holy-grail__sidebar--second {
+      order: 3;
+    }
+    @media all and (min-width: 720px) {
+      .holy-grail__body {
+        flex-direction: row;
+      }
+      .holy-grail__sidebar {
+        flex: 0 0 180px;
+      }
+      .holy-grail__content {
+        flex: 1
+      }
+    }
+
+    @media all and (min-width: 960px) {
+      .holy-grail__sidebar {
+        flex: 0 0 240px;
+      }
+    }
+  </style>
+</head>
+<body class="holy-grail">
+  <div class="holy-grail__header">This is Header</div>
+  <div class="holy-grail__body">
+    <div class="holy-grail__content">This is the main content</div>
+    <div class="holy-grail__sidebar holy-grail__sidebar--first">Sidebar 1</div>
+    <div class="holy-grail__sidebar holy-grail__sidebar--second">Sidebar 2</div>
+  </div>
+  <div class="holy-grail__footer">This is footer</div>
+</body>
+</html>

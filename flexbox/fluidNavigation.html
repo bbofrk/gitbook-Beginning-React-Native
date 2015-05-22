@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flud Naviationg</title>
+  <style>
+    input, button {
+      font: inherit;
+      border-radius: none;
+      box-shadow: none;
+      appearance: none
+    }
+    button {
+      cursor: pointer;
+    }
+    /* nav container */
+    .flexy-nav {
+      display: flex;
+      flex-direction: column;
+    }
+    /* nav link */
+    .flexy-nav_items {
+      display: none;
+      flex: 1;
+      flex-direction: column;
+      list-style: none;
+      margin: 0 0 4px 0;
+      padding: 4px;
+      text-align: center;
+    }
+    .flexy-nav_items--visible {
+      display: flex;
+    }
+    .flexy-nav_item {
+      background-color: #f1f1f1;
+      border-bottom: solid 1px #e7e7e7;
+    }
+    .flexy-nav_item:last-child {
+      border-bottom: 0;
+    }
+    .flexy-nav_link {
+      padding: 8px;
+      display: block;
+    }
+
+    /* nav toggle */
+    .flexy-nav_toggle {
+      margin: 0 0 4px 0;
+      padding: 4px;
+      color: #fff;
+      background-color: #f07850;
+      border: none;
+    }
+    .flexy-bav_toggle:hover,
+    .flexy-nav_toggle:focus {
+      outline: none;
+      background-color: #c93f11;
+    }
+
+    /* nav form */
+    .flexy-nav_form {
+      height: 48px;
+    }
+    .flexy-nav_search {
+      display: block;
+      margin: 0;
+      padding: 0 4px;
+      width: 100%;
+      height: 48px;
+      color: #6d6d6d;
+      background-color: #fff;
+      border: solid 2px #e7e7e7;
+    }
+    .flexy-nav_search: focus {
+      outline: none;
+      border: solid 2px #6d6d6d;
+    }
+
+    /* media query */
+    @media all and (min-width: 768px) {
+      .flexy-nav {
+        flex-direction: row;
+      }
+      .flexy-nav_items {
+        display: flex;
+        flex-direction: row;
+        margin: 0;
+        padding: 0;
+        height: 48px;
+      }
+      .flexy-nav_item {
+        flex: 1;
+        margin-right: 4px;
+        border-bottom: none;
+      }
+      .flexy-nav_link {
+        padding: 0;
+        line-height: 48px;
+      }
+      .flexy-nav_toggle {
+        display: none;
+      }
+      .flexy-nav_form {
+        flex: none;
+      }
+      .flexy-nav_search {
+        width: 240px;
+        transition: width 0.3s;
+      }
+      .flexy-nav_search: focus {
+        width: 360px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="flexy-nav">
+    <button id="flexy-nav_toggle" class="flexy-nav_toggle">Toggle Nav</button>
+    <ul id="flexy-nav_items" class="flexy-nav_items">
+      <li class="flexy-nav_item"><a href="#" class="flexy-nav_link">Item 1</a></li>
+      <li class="flexy-nav_item"><a href="#" class="flexy-nav_link">Item 2</a></li>
+      <li class="flexy-nav_item"><a href="#" class="flexy-nav_link">Item 3</a></li>
+      <li class="flexy-nav_item"><a href="#" class="flexy-nav_link">Item 4</a></li>
+    </ul>
+    <form action="" class="flexy-nav_form">
+      <input type="text" class="flexy-nav_search" placeholder="type search terms and hit enter">
+    </form>
+  </nav>
+
+  <script>
+    (function() {
+      var toggle= document.querySelector("#flexy-nav_toggle");
+      var nav = document.querySelector("#flexy-nav_items");
+      toggle.addEventListener("click", function(e) {
+        e.preventDefault();
+        nav.classList.contains("flexy-nav_items--visible") ? nav.classList.remove("flexy-nav_items--visible") : nav.classList.add("flexy-nav_items--visible");
+      });
+    })();
+  </script>
+</body>
+</html>
