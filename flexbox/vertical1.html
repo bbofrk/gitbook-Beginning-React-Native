@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vertical 1</title>
+  <style>
+    .user {
+      display: flex;
+      align-items: center;
+    }
+    .user:last-child {
+      margin-bottom: 0;
+    }
+    .user_avatar {
+      flex: 0 0 96px;
+      width: 96px;
+      height: 96px;
+      background-color: #e7e7e7;
+    }
+    .user_description {
+      flex: 1;
+      margin-left: 24px;
+      padding: 12px;
+      border: solid 1px #e7e7e7;
+    }
+
+    .banner {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      height: 180px;
+      background-color: #e7e7e7;
+    }
+    .banner_content {
+      text-align: center;
+    }
+    .banner_title,
+    .banner_sub {
+      margin: 0;
+      padding: 0;
+      line-height: 1.5;
+    }
+    @media all and (min-width: 480px) {
+      .banner {
+        height: 240px;
+      }
+    }
+    @media all and (min-width: 768px) {
+      .banner {
+        height: 360px;
+      }
+    }
+    @media all and (min-width: 960px) {
+      .banner {
+        height: 480px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="banner">
+    <div class="banner_content">
+      <h2 class="banner_title">Symmetrical Perfection</h2>
+      <span class="banner_sub">A beautiful sight, achieved with flexbox.</span>
+    </div>
+  </div>
+  <div class="user">
+    <div class="user_avatar"></div>
+    <div class="user_description">
+      <h2 class="user_username">John Doe</h2>
+      <p class="user excerpt">I'm John Doe...</p>
+    </div>
+  </div>
+</body>
+</html>
