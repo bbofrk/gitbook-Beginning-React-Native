@@ -15,7 +15,11 @@ var TodoItem = React.createClass({
     } else {
       return (
         <li>
-          <input type="text" value={this.state.content} onChange={(event) => this.setState{content: event.tartget.value}} />
+          <input
+            type="text"
+            value={this.state.content}
+            onChange={(event) => this.setState({content: event.tartget.value})}
+          />
         </li>
       )
     }
