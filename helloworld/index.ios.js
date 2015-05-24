@@ -5,6 +5,7 @@
 'use strict';
 
 var React = require('react-native');
+var Canvas = require('./Canvas');
 var {
   AppRegistry,
   StyleSheet,
@@ -13,7 +14,26 @@ var {
   TextInput,
   TouchableHighlight
 } = React;
+function renderCanvas(canvas) {
+  var message = this.msg;
+  var ctx = canvas.getContext('2d'),
+      particles = [];
+      patriclesNum = 50,
+      w = 200,
+      h = 200,
+      colors = ['#f35d4f','#f36849','#c0d988','#6ddaf1','#f1e85b'];
 
+  canvas.width = 200;
+  canvas.height = 200;
+  canvas.style.left = (window.innerWidth - 200)/2 + 'px';
+  if (window.innerHeight > 200)
+    canvas.style.top = (windows.innerHeight - 200)/2 + 'px';
+  function draw(){
+    ctx.font = "20px Georgia";
+    ctx.fillText(mmessage, 10, 50);
+  }
+  draw();
+};
 var helloworld = React.createClass({
   getInitialState: function() {
     return {
@@ -27,7 +47,9 @@ var helloworld = React.createClass({
       text += possible.charAt(Math.floor(Math.random() * possible.length));
     this.setState({content: text});
   },
+
   render: function() {
+    var context = {msg: "Hello!"};
     return (
       <View style={styles.container}>
         <View style={styles.flowRight}>
@@ -48,6 +70,9 @@ var helloworld = React.createClass({
         <Text style={styles.content}>
           {this.state.content}
         </Text>
+        <View style={styles.canvasContainer}>
+          <Canvas context={context} render={renderCanvas} />
+        </View>
       </View>
     );
   }
@@ -96,6 +121,11 @@ var styles = StyleSheet.create({
     textAlign: 'center',
     color: '#333333',
     marginBottom: 5
+  },
+  canvasContainer: {
+    padding: 30,
+    marginTop: 65,
+    borderColor: '#e7e7e7',
   }
 });
 
