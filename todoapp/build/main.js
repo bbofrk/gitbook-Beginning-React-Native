@@ -19875,6 +19875,9 @@ var TodoApp = React.createClass({displayName: "TodoApp",
     ];
     this.setState({todos: todos});
   },
+  addTodo: function(){
+
+  },
   render: function(){
     return (
       React.createElement("div", null, 

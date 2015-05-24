@@ -15,6 +15,9 @@ var TodoApp = React.createClass({
     ];
     this.setState({todos: todos});
   },
+  addTodo: function(){
+
+  },
   render: function(){
     return (
       <div>
