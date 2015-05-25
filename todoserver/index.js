@@ -6,7 +6,14 @@ app.get('/', function(req, res) {
 });
 app.get('/todos', function(req, res) {
   var todos = ['todo item1', 'todo item 2', 'todo item 3'];
-  res.send(todos);
+  console.log(req.query.limit);
+  if (req.query.limit >= 0) {
+    todos.splice(req.query.limit);
+  }
+  else {
+  }
+  res.json(todos);
+
 });
 app.listen(3000, function(){
   console.log('Listen on port 3000');
